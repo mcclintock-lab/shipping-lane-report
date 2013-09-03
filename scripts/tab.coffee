@@ -19,6 +19,7 @@ class ShippingLaneReportTab extends ReportTab
   events:
     "click a.moreResults":        'onMoreResultsClick'
   dependencies: ['LaneOverlay']
+  timeout: 30000
 
   render: () ->
     window.results = @results
