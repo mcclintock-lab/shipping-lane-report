@@ -51,15 +51,22 @@ module.exports = (grunt) ->
       report:
         files:
           'dist/report.css': 'stylesheets/report.less'
+      main:
+        files:
+          'dist/main.css': 'node_modules/seasketch-reporting-api/stylesheets/common.less'
     browserify:
       report:
         src: 'scripts/report.coffee'
         dest: 'dist/report.js'
+      generic:
+        src: 'scripts/generic.coffee'
+        dest: 'dist/generic.js'
       options:
         transform: ['coffeeify']
         debug: true
         alias: [
           'node_modules/seasketch-reporting-api/scripts/reportTab.coffee:reportTab'
+          'node_modules/seasketch-reporting-api/templates/templates.js:api/templates'
         ]
 
   grunt.loadNpmTasks('grunt-contrib-connect')
